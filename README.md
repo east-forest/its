@@ -6,15 +6,29 @@
   - Model modelとセットすることで、呼び出し時にModelのインスタンスを呼ぶことができる
 
 ### 開発効率UPするために
-- spring-dev-tools
-  - ソースコードの変更内容を自動で反映してくれる
-  - Thymeleafで適用させるために、下記をapplication.propertiesに記載
-    ```
-    spring.thymeleaf.prefix= path名
-    ```
+#### spring-dev-tools
+- ソースコードの変更内容を自動で反映してくれる
+- Thymeleafで適用させるために、下記をapplication.propertiesに記載
+```
+spring.thymeleaf.prefix= path名
+```
 
-## エラー出た時
-```
-template might not exist or might not be accessible by any of the configured Template Resolvers
-```
-- htmlファイルのパスが間違っていることを確認する
+#### Lombok
+- Constructor、Getter、Setterを自動生成してくれるライブラリ
+- @AllArgsConstructor
+  - クラスの全ての引数を取るConstructorを自動生成してくれる
+- @Data
+  - GettterとSetterをまとめて作成してくれる
+
+### ３層アーキテクチャ
+- プレゼンテーション層（画面から入力・出力）
+- ビジネスロジック層（業務ロジック）
+- データアクセス層（データベースとのやりとり）
+
+### DI(Dependency Injection）
+- SpringでのDI = Bean登録（Javaクラスのこと）＋インジェクション
+- 後ほど記載する
+
+
+
+
