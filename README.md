@@ -5,10 +5,10 @@
 - Java上のデータをフロント側に渡すために、Modelクラスを活用する
   - Model modelとセットすることで、呼び出し時にModelのインスタンスを呼ぶことができる
 
-### 開発効率UPするために
+### Setup
 #### spring-dev-tools
 - ソースコードの変更内容を自動で反映してくれる
-- Thymeleafで適用させるために、下記をapplication.propertiesに記載
+- Thymeleafで適用させるために、下記をapplication.propertiesに記載する
 ```
 spring.thymeleaf.prefix= path名
 ```
