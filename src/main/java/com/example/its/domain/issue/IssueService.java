@@ -1,14 +1,23 @@
 package com.example.its.domain.issue;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class IssueService {
 
+    private final IssuesRepository issuesRepository;
+
     public List<IssueEntity> findAll() {
-        return List.of(
-                new IssueEntity(1, "概要１", "説明１"),
-                new IssueEntity(2, "概要２", "説明２"),
-                new IssueEntity(3, "概要３", "説明３")
-        );
+       return issuesRepository.findAll();
+    }
+
+    @Transactional
+    public void create(String summary, String description) {
+        issuesRepository.insert(summary, description);
     }
 }
