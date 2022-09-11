@@ -5,30 +5,17 @@
 - Java上のデータをフロント側に渡すために、Modelクラスを活用する
   - Model modelとセットすることで、呼び出し時にModelのインスタンスを呼ぶことができる
 
-### Setup
-#### spring-dev-tools
-- ソースコードの変更内容を自動で反映してくれる
-- Thymeleafで適用させるために、下記をapplication.propertiesに記載する
-```
-spring.thymeleaf.prefix= path名
-```
-
 #### Lombok
 - Constructor、Getter、Setterを自動生成してくれるライブラリ
+
+#### アノテーションについて
 - @AllArgsConstructor
   - クラスの全ての引数を取るConstructorを自動生成してくれる
 - @Data
   - GettterとSetterをまとめて作成してくれる
-
-### ３層アーキテクチャ
-- プレゼンテーション層（画面から入力・出力）
-- ビジネスロジック層（業務ロジック）
-- データアクセス層（データベースとのやりとり）
-
-### DI(Dependency Injection）
-- SpringでのDI = Bean登録（Javaクラスのこと）＋インジェクション
-- 後ほど記載する
-
-
-
-
+- @RequriredArgsController
+  - 
+- @Mapper
+  - Mybatisを通して、データベースに接続できるようになる
+- @Validated
+  - Formに対して、バリデーションが適用されるようになる
