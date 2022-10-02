@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -13,7 +14,7 @@ public class IssueService {
     private final IssuesRepository issuesRepository;
 
     public List<IssueEntity> findAll() {
-       return issuesRepository.findAll();
+        return issuesRepository.findAll();
     }
 
     @Transactional
@@ -22,6 +23,6 @@ public class IssueService {
     }
 
     public IssueEntity findById(long issueId) {
-       return issuesRepository.findById(issueId);
+        return issuesRepository.findById(issueId);
     }
 }

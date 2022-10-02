@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @Controller
 @RequestMapping("/issues")
 @RequiredArgsConstructor
@@ -19,7 +21,7 @@ public class issueController {
     @GetMapping
     public String showList(Model model) {
         model.addAttribute("issueList", issueService.findAll());
-        return "issues/list";
+        return "list";
     }
 
     @GetMapping("/creationForm")
