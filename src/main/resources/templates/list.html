@@ -9,7 +9,7 @@
 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
     <a href="./creationForm.html" th:href="@{/issues/creationForm}" class="btn btn-primary me-md-2">作成</a>
 </div>
-<table class="table table-bordered">
+<table class="table">
     <thead class="table-info">
     <tr>
         <th>No</th>
@@ -18,7 +18,7 @@
     </thead>
     <tbody>
     <tr th:each="issue : ${issueList}">
-        <th th:text="${issue.id}">(id)</th>
+        <td th:text="${issue.id}">(id)</td>
         <td>
             <a href="./detail.html" th:href="@{/issues/{issueId}(issueId=${issue.id})}" th:text="${issue.summary}">
                 (summary)
