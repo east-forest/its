@@ -1,6 +1,5 @@
 package com.example.its.web.issue;
 
-import com.example.its.domain.issue.IssueEntity;
 import com.example.its.domain.issue.IssueService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -9,12 +8,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-
 @Controller
 @RequestMapping("/issues")
 @RequiredArgsConstructor
-public class issueController {
+public class IssueController {
 
     private final IssueService issueService;
 
@@ -32,7 +29,7 @@ public class issueController {
     //　登録後、一覧画面に戻る流れ
     @PostMapping
     public String create(@Validated IssueForm form, BindingResult bindingResult, Model model) {
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return showCreationForm(form);
         }
         issueService.create(form.getSummary(), form.getDescription());
@@ -44,5 +41,16 @@ public class issueController {
     public String showDetail(@PathVariable("issueId") long issueId, Model model) {
         model.addAttribute("issue", issueService.findById(issueId));
         return "issues/detail";
+    }
+
+    @PostMapping("/edit/{issueId}")
+    public String update(@PathVariable("issueId") long issueId, @Validated IssueForm form, BindingResult bindingResult, Model model) {
+
+        if (bindingResult.hasErrors()) {
+            return showDetail(issueId, model);
+        }
+
+        issueService.update(issueId, form.getSummary(), form.getDescription());
+        return "redirect:/issues";
     }
 }

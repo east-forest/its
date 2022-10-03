@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,5 +23,15 @@ public class IssueService {
 
     public IssueEntity findById(long issueId) {
         return issuesRepository.findById(issueId);
+    }
+
+    @Transactional
+    public void update(long issueId, String summary, String description) {
+        IssueEntity issue = findById(issueId);
+        if(issue == null) {
+            throw new IllegalStateException("対象のデータが存在しません");
+        } else {
+            issuesRepository.update(issueId, summary, description);
+        }
     }
 }
