@@ -1,4 +1,4 @@
-# 課題管理アプリ メモ
+# 課題管理アプリ 
 - Udemyで作成したものです。
 
 https://user-images.githubusercontent.com/98323384/192077957-37ecaa8e-2918-437d-b864-861ae4c4537e.mov
@@ -17,7 +17,6 @@ https://user-images.githubusercontent.com/98323384/192077957-37ecaa8e-2918-437d-
 - @Data
   - GettterとSetterをまとめて作成してくれる
 - @RequriredArgsController
-  - 
 - @Mapper
   - Mybatisを通して、データベースに接続できるようになる
 - @Validated
@@ -29,8 +28,3 @@ https://user-images.githubusercontent.com/98323384/192077957-37ecaa8e-2918-437d-
 - [ ] 登録機能（作成日時も登録されるようにする）
 - [x] ボタンレイアウト変更
 - [ ] データ永続化 
-
-## メモ
-- 更新処理
-  - 登録処理同様に、バリデーション処理を入れようとした所、`Exception evaluating SpringEL expression`が出力されてしまい、データ反映が上手くいっていない模様。
-    - （多分）自動生成の値のため、getterの名前が [get + フィールド名] になっていないから（[参考サイト](https://qiita.com/axs-dev/items/f21cb004560416e98680)）
