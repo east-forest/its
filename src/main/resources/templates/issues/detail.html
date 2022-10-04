@@ -7,8 +7,8 @@
 <body>
 <h1 class="mt-3">課題詳細</h1>
 <div>
-    <form action="#" th:action="@{/issues/edit/{issueId}(issueId=${issue.id})}" th:method="post"
-          th:object="${issueForm}">
+    <form action="#" th:action="@{/issues/detail}" th:method="post" th:object="${IssueDetailForm}">
+        <input type="hidden" th:field="${issue.id}">
         <span class="text-danger">空文字での登録はできません</span>
         <div class="summary-form mt-3 mb-2">
             <label for="summary" class="form-label">概要</label>
@@ -21,8 +21,8 @@
         </div>
 
         <div class="btn-area">
-            <button type="submit" class="btn btn-primary">更新</button>
-            <button type="submit" class="btn btn-danger">削除</button>
+            <button type="submit" class="btn btn-primary" name="update">更新</button>
+            <button type="submit" class="btn btn-danger" name="delete">削除</button>
             <a href="./list.html" th:href="@{/issues}" class="btn btn-secondary">一覧に戻る</a>
         </div>
     </form>

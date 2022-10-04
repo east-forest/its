@@ -43,14 +43,21 @@ public class IssueController {
         return "issues/detail";
     }
 
-    @PostMapping("/edit/{issueId}")
-    public String update(@PathVariable("issueId") long issueId, @Validated IssueForm form, BindingResult bindingResult, Model model) {
-
+    // 更新機能
+    @PostMapping(value = "/detail", params = "update")
+    public String update(@Validated IssueDetailForm form, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return showDetail(issueId, model);
+            return showDetail(form.getId(), model);
         }
 
-        issueService.update(issueId, form.getSummary(), form.getDescription());
+        issueService.update(form.getId(), form.getSummary(), form.getDescription());
+        return "redirect:/issues";
+    }
+
+    // 削除機能
+    @PostMapping(value = "/detail", params = "delete")
+    public String delete(@Validated IssueDetailForm form) {
+        issueService.delete(form.getId());
         return "redirect:/issues";
     }
 }

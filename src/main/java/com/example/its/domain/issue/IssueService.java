@@ -34,4 +34,14 @@ public class IssueService {
             issuesRepository.update(issueId, summary, description);
         }
     }
+
+    @Transactional
+    public void delete(long issueId) {
+        IssueEntity issue = findById(issueId);
+        if(issue == null) {
+            throw new IllegalStateException("対象のデータが存在しません");
+        } else {
+            issuesRepository.delete(issueId);
+        }
+    }
 }
